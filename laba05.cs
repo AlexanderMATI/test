@@ -8,11 +8,31 @@ namespace laba05
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Launch the console? Y/N");
-            ConsoleKeyInfo change = Console.ReadKey() ;
-            string tempString = string.Empty; 
+           Console.WriteLine("Launch the console? Y/N");
+           ConsoleKeyInfo change = Console.ReadKey() ;
+           string tempString = string.Empty; 
+           if (change.Key == ConsoleKey.Y)
+            {
 
-            if (change.Key == ConsoleKey.N)
+                while (true)
+                {
+                    Console.Clear();
+                    Console.WriteLine("Enter the number and number system");
+                    tempString = Console.ReadLine();
+                    if (tempString.Length == 0)
+                    {
+                        Console.WriteLine("Enter is empty, finish? Y/*AnySymbol");
+                        change = Console.ReadKey();
+                        if (change.Key == ConsoleKey.Y)
+                            return;
+                        else continue;
+                    }
+                    break;
+                }//end while
+            }
+            
+            
+            else if (change.Key == ConsoleKey.N)
             {
 
                 string filename = string.Empty;
@@ -53,25 +73,7 @@ namespace laba05
 
 
 
-            else if (change.Key == ConsoleKey.Y)
-            {
-
-                while (true)
-                {
-                    Console.Clear();
-                    Console.WriteLine("Enter the number and number system");
-                    tempString = Console.ReadLine();
-                    if (tempString.Length == 0)
-                    {
-                        Console.WriteLine("Enter is empty, finish? Y/*AnySymbol");
-                        change = Console.ReadKey();
-                        if (change.Key == ConsoleKey.Y)
-                            return;
-                        else continue;
-                    }
-                    break;
-                }//end while
-            }
+          
             else return;
             var Array = tempString.Split(' ', ',');
             Array[1] = "0," + Array[1];
